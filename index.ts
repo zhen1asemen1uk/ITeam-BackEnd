@@ -57,6 +57,8 @@ class App {
 				DB_PORT || '+srv'
 			}://${DB_USER}:${DB_PWD}@${DB_HOST}/?retryWrites=true&w=majority`;
 
+			mongoose.set('strictQuery', false);
+
 			mongoose.connect(connectionString);
 		} catch (e) {
 			console.error(e);

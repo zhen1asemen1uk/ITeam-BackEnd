@@ -4,13 +4,13 @@
 	"description": "```sh\r 1. Download or clone the repository\r 2. Create and fill .env\r 3. yarn (or npm i)\r 4. yarn start (or npm start)\r ```",
 	"main": "index.ts",
 	"engines": {
-		"node": "16.x",
+		"node": "16.x || 18.x",
 		"yarn": "1.22.x"
 	},
 	"homepage": "https://github.com/iteam-comp/iteam-back-end#readme",
 	"scripts": {
-		"dev": "nodemon -r dotenv/config index.ts --watch . --ext \"js,json,ts\"",
-		"start": "node dist/index.js",
+		"dev": "export NODE_ENV=development && nodemon -r dotenv/config index.ts --watch . --ext \"js,json,ts\"",
+		"start": "export NODE_ENV=production && node dist/index.js",
 		"start:prod": "ts-node index.ts",
 		"build:watch": "tsc -w -p tsconfig.build.json",
 		"lint": "eslint --ext .ts src",
@@ -67,7 +67,7 @@
 		"type": "git",
 		"url": "git+https://github.com/iteam-comp/iteam-back-end.git"
 	},
-	"author": "",
+	"author": "Yevhen <jekasemenuk@icloud.com>, Igor <sergienko339@gmail.com>",
 	"license": "ISC",
 	"bugs": {
 		"url": "https://github.com/iteam-comp/iteam-back-end/issues"
