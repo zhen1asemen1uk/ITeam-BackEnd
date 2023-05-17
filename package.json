@@ -10,9 +10,10 @@
 	"homepage": "https://github.com/iteam-comp/iteam-back-end#readme",
 	"scripts": {
 		"dev": "export NODE_ENV=development && nodemon -r dotenv/config index.ts --watch . --ext \"js,json,ts\"",
-		"start": "export NODE_ENV=production && node dist/index.js",
-		"start:prod": "ts-node index.ts",
+		"start": "export NODE_ENV=production && ts-node index.ts",
 		"build:watch": "tsc -w -p tsconfig.build.json",
+		"build:prod": "tsc -p tsconfig.build.json",
+		"start:prod": "export NODE_ENV=production && node dist/index.js",
 		"lint": "eslint --ext .ts src",
 		"lint:fix": "eslint --ext .ts src --fix",
 		"prepare": "husky install"
