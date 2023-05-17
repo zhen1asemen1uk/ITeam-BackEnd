@@ -1,6 +1,7 @@
-import { ObjectId } from 'mongoose';
+import { Document, ObjectId } from 'mongodb';
 
-interface UserInterface {
+interface UserInterface extends Document {
+	_id: ObjectId;
 	email: string;
 	password?: string;
 	name: string;

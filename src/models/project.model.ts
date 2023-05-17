@@ -1,13 +1,17 @@
 import { Request, Response } from 'express';
 
 import Model from '.';
+import PaginationService from '../services/pagination';
 import errorsCatcher from '../utils/errorsCatcher';
 import ProjectSchema from './schems/projectSchema';
 
 class ProjectModel extends Model {
 	static async getAllProjects(req: Request, res: Response) {
 		try {
-			return await ProjectSchema.find({});
+			return await PaginationService.paginationAndSort(
+				req,
+				ProjectSchema
+			);
 		} catch (e) {
 			console.error(e);
 			return errorsCatcher(res);

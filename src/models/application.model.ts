@@ -1,13 +1,17 @@
 import { Request, Response } from 'express';
 
 import Model from '.';
+import PaginationService from '../services/pagination';
 import errorsCatcher from '../utils/errorsCatcher';
 import ApplicationSchema from './schems/applicationSchema';
 
 class ApplicationModel extends Model {
 	static async getAllApplications(req: Request, res: Response) {
 		try {
-			return await ApplicationSchema.find({});
+			return await PaginationService.paginationAndSort(
+				req,
+				ApplicationSchema
+			);
 		} catch (e) {
 			console.error(e);
 			return errorsCatcher(res);
